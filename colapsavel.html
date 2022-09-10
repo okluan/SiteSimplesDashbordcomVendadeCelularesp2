@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Chartist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://rawgit.com/gionkunz/chartist-js/master/dist/chartist.min.css"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+      div.categories-list {
+        width: 50%;
+        margin-bottom: 20px;
+        float: left;
+      }
+
+      ul.categories,
+      ul.sub {
+        border-top: 1px solid #c3cfd9;
+        margin: 0;
+        padding: 0;
+      }
+
+      ul.categories li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      ul.categories li a {
+        display: block;
+        max-width: 100%;
+        padding: 10px 5px 10px 10px;
+        font-size: 13px;
+        background: #fcfcfc;
+        color: #3f729b;
+        border: 1px solid #c3cfd9;
+        border-top: 0px !important;
+        text-decoration: none;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 150ms ease-out;
+        -webkit-transition: all 150ms ease-out;
+      }
+
+      ul.categories li a:hover {
+        text-indent: 5px;
+      }
+
+      ul.sub {
+        display: none;
+      }
+
+      .activeUi {
+        display: block;
+      }
+      ul ul {
+        display: none;
+      }
+
+      .show {
+        display: block;
+      }
+
+      #chart-container {
+        position: relative;
+        height: 50vh;
+        overflow: hidden;
+      }
+
+      #chart-container_ {
+        position: relative;
+        height: 50vh;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul class="nav justify-content-center p-3 bg-dark mb-5">
+      <li class="nav-item">
+        <a class="nav-link text-white" href="barras.html">Barras</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="share.html">Share</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="colapsavel.html">Colapsável</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="dados.html">Dados</a>
+      </li>
+    </ul>
+
+
+    <div class="container">
+      <h1>Gráfico Colapsável</h1>
+      <p> Marcas Vs. Lucro Líquido - Produtos Vs. Lucro Líquido</p>
+      <p>Referência: Mês de Março de 2021</p>
+    </div>
+
+    <div class="container mb-5">
+      <div class="row justify-content-center pt-3">
+        <div class="categories-list">
+          <ul class="categories">
+            <li>
+              <a href="javascript:;" class="toggle">Samsung - 30</a>
+              <ul>
+                <li>
+                  <a href="javascript:;" class="toggle">Galaxy S20 - 10</a>
+                </li>
+                <li>
+                  <a href="javascript:;" class="toggle">Galaxy F20 - 20</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="javascript:;" class="toggle">Apple - 50</a>
+              <ul>
+                <li>
+                  <a href="javascript:;" class="toggle">Iphone 12 - 50</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="javascript:;" class="toggle">Motorola - 32</a>
+              <ul>
+                <li>
+                  <a href="javascript:;" class="toggle">Motorola Edge 30 - 5</a>
+                </li>
+                <li>
+                  <a href="javascript:;" class="toggle"
+                    >Motorola Edge 20 Pro - 12</a
+                  >
+                </li>
+                <li>
+                  <a href="javascript:;" class="toggle">Motorola G22 - 15</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="javascript:;" class="toggle">LG - 34</a>
+              <ul>
+                <li>
+                  <a href="javascript:;" class="toggle">LG K11 - 9</a>
+                </li>
+                <li>
+                  <a href="javascript:;" class="toggle">LG K14 - 25</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://fastly.jsdelivr.net/npm/echarts@5.3.3/dist/echarts.min.js"></script>
+
+
+    <script>
+      document.querySelector(".categories").addEventListener("click", (e) => {
+        const el = e.target;
+        const sibling = el.nextSibling.nextSibling;
+
+        if (el && el.className == "toggle" && sibling) {
+          sibling.classList.toggle("show");
+        }
+      });
+
+      
+    </script>
+  </body>
+</html>
